@@ -1,7 +1,6 @@
-
 provider "azurerm" {
 }
-
+variable "access_key" {}
 resource "azurerm_resource_group" "test" {
   name     = "test-app-todo"
   location = "East US"
@@ -27,4 +26,12 @@ resource "azurerm_app_service" "test" {
 
 output "address" {
   value = "${azurerm_app_service.test.default_site_hostname}"
+}
+
+terraform {
+  backend "azurerm" {
+    storage_account_name = "todoteststorage"
+    container_name       = "test"
+    key                  = "test.terraform.tfstate"
+  }
 }
