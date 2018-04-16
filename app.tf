@@ -29,6 +29,7 @@ output "address" {
 }
 
 terraform {
+  required_version = "0.11.0"
   backend "azurerm" {
     storage_account_name = "todoteststorage"
     container_name       = "test"
