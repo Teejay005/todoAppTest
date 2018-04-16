@@ -2,3 +2,6 @@ bin/
 obj/
 obj/*
 bin/*
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
